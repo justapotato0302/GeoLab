@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "454441530405",
+    "project_id": "geolab-49cf8",
+    "storage_bucket": "geolab-49cf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454441530405:android:22e70adb21ddf0a680bbcc",
+        "android_client_info": {
+          "package_name": "com.example.geolab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454441530405-et1ootp4oefrbbf0spk72kqfaciji3os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb6V3KlMb_0NSn3VQmyi5f8NXTl2-pEr0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454441530405-et1ootp4oefrbbf0spk72kqfaciji3os.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
