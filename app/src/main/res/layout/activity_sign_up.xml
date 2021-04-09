@@ -107,8 +107,12 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins_medium"
             android:text="FORGOT PASSWORD">
-
         </TextView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="560dp"
+            android:src="@drawable/wave"></ImageView>
 
 
     </LinearLayout>
