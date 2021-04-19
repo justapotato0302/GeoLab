@@ -109,8 +109,8 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/login_btn"
+        <Button
+            android:id="@+id/register_submit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -126,8 +126,9 @@
             android:textColor="#ffffff"
             android:textSize="14sp"
             android:textStyle="bold">
+        </Button>
 
-        </TextView>
+
 
         <ImageView
             android:layout_width="match_parent"
