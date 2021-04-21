@@ -120,6 +120,14 @@
             android:text="FORGOT PASSWORD">
         </TextView>
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_signin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+        </com.google.android.gms.common.SignInButton>
+
 
         <ImageView
             android:layout_width="match_parent"

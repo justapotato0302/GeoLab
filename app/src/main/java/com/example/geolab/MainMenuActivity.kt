@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 
 class MainMenuActivity : AppCompatActivity() {
@@ -38,5 +40,24 @@ class MainMenuActivity : AppCompatActivity() {
 //            // FirebaseUser.getToken() instead.
 //            val uid = user.uid
 //        }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
+
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?){
+        if (currentUser != null){
+            startActivity(Intent(this, MainMenuActivity::class.java))
+        } else {
+            Toast.makeText(
+                baseContext, "Not Signed In.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }
