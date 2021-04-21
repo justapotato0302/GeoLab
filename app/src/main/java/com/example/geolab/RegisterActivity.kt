@@ -5,28 +5,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
-import android.widget.TextView
 import android.widget.EditText
 import android.widget.Toast
+import com.example.geolab.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
 
 class RegisterActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
 
+    private lateinit var binding: ActivityRegisterBinding
+
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
 
-        val register_btn: View = findViewById(R.id.register_submit_btn)
-        val email_input = findViewById<EditText>(R.id.username_input)
-        val password_input = findViewById<EditText>(R.id.password)
-        val repassword_input = findViewById<EditText>(R.id.confirm_password)
+        val registerBtn: View = binding.registerSubmitBtn
+        val emailInput = binding.usernameInput
+        val passwordInput = binding.password
+        val rePasswordInput = binding.confirmPassword
 
-        register_btn.setOnClickListener {
-            register(email_input,password_input,repassword_input)
+        registerBtn.setOnClickListener {
+            register(emailInput,passwordInput,rePasswordInput)
         }
 
 

@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import android.widget.EditText
 import android.util.Patterns
+import com.example.geolab.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -17,29 +17,32 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import org.w3c.dom.Text
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
 
+    private lateinit var binding: ActivitySignInBinding
+
+    private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         auth = FirebaseAuth.getInstance()
 
         //registered email and password signin
-        val login_btn: View = findViewById(R.id.login_btn)
-        val register_btn: View = findViewById(R.id.register_from_login)
-        val email_input = findViewById<EditText>(R.id.username_input)
-        val password_input = findViewById<EditText>(R.id.password)
+        val loginBtn: View = binding.loginBtn
+        val registerBtn: View = binding.registerFromLogin
+        val emailInput = binding.usernameInput
+        val passwordInput = binding.password
 
-        login_btn.setOnClickListener {
-            signIn(email_input, password_input)
+        loginBtn.setOnClickListener {
+            signIn(emailInput, passwordInput)
         }
 
-        register_btn.setOnClickListener {
+        registerBtn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
@@ -51,14 +54,12 @@ class SignInActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        val googleBtn:SignInButton = findViewById(R.id.google_signin);
+        val googleBtn:SignInButton = binding.googleSignin
         googleBtn.setSize(SignInButton.SIZE_STANDARD);
 
         googleBtn.setOnClickListener {
             googleSignIn()
         }
-
-
 
     }
 
@@ -142,7 +143,7 @@ class SignInActivity : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?){
         if (currentUser != null){
-            startActivity(Intent(this, MainMenuActivity::class.java))
+            startActivity(Intent(this, DashboardActivity::class.java))
         } else {
             Toast.makeText(
                 baseContext, "Not Signed In.",
