@@ -15,7 +15,7 @@
             android:id="@+id/topView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#FF3D00">
+            android:background="@color/orange_red">
 
             <ImageView
                 android:layout_width="180dp"
