@@ -109,7 +109,7 @@
 
         </RelativeLayout>
 
-        <Button
+        <TextView
             android:id="@+id/register_submit_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
             android:textColor="#ffffff"
             android:textSize="14sp"
             android:textStyle="bold">
-        </Button>
+        </TextView>
 
 
 
