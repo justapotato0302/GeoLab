@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoLab">
         <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".TestFragmentActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">

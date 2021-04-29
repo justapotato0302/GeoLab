@@ -50,9 +50,12 @@
         android:layout_width="318dp"
         android:layout_height="232dp"
         android:layout_gravity="center"
+        android:layout_marginTop="89dp"
         android:src="@drawable/geolab"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="89dp"></ImageView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
     <TextView
         android:id="@+id/sign_in_btn"
