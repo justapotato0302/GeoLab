@@ -26,8 +26,6 @@ class DashboardActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        auth.signOut()
-
         val logout_btn : CardView? = binding.logoutBtn
 
         if (logout_btn != null) {
@@ -58,19 +56,19 @@ class DashboardActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
 
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
 
     }
 
-//    private fun updateUI(currentUser: FirebaseUser?){
-//        if (currentUser != null){
+    private fun updateUI(currentUser: FirebaseUser?){
+        if (currentUser != null){
 //            startActivity(Intent(this, SignInActivity::class.java))
-//        } else {
-//            Toast.makeText(
-//                baseContext, "Not Signed In.",
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
+        } else {
+            Toast.makeText(
+                baseContext, "Not Signed In.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
 }

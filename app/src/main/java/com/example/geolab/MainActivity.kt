@@ -18,11 +18,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val button : Button = binding.button
-        button.setOnClickListener {
-            val intent = Intent(this, SignInActivity::class.java)
+        val intent = Intent(this, TestFragmentActivity::class.java)
             startActivity(intent)
-        }
+
+//        val signInBtn : View = binding.signInBtn
+//        signInBtn.setOnClickListener {
+//            val intent = Intent(this, TestFragmentActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }
