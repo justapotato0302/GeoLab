@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -68,7 +69,8 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
         auth.createUserWithEmailAndPassword(email.text.toString(), email.text.toString())
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    (activity as TestFragmentActivity).showSignInFragment()
+                    val action = FragmentRegisterDirections.actionFragmentRegisterToFragmentSignIn()
+                    view?.findNavController()?.navigate(action)
                 } else {
                     Toast.makeText(requireContext(), "Sign Up failed.",
                         Toast.LENGTH_SHORT).show()

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,7 +26,9 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
         if (logout_btn != null) {
             logout_btn.setOnClickListener {
                 auth.signOut()
-                (activity as TestFragmentActivity).showSignInFragment()
+
+                val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentSignIn()
+                view.findNavController().navigate(action)
             }
         }
     }

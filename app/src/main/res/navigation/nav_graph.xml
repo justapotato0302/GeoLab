@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentFront">
+
+    <fragment
+        android:id="@+id/fragmentFront"
+        android:name="com.example.geolab.FragmentFront"
+        android:label="fragment_front"
+        tools:layout="@layout/fragment_front" >
+        <action
+            android:id="@+id/action_fragmentFront_to_fragmentSignIn"
+            app:destination="@id/fragmentSignIn" />
+        <action
+            android:id="@+id/action_fragmentFront_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSignIn"
+        android:name="com.example.geolab.FragmentSignIn"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_fragmentSignIn_to_fragmentDashboard"
+            app:destination="@id/fragmentDashboard" />
+        <action
+            android:id="@+id/action_fragmentSignIn_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.example.geolab.FragmentRegister"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentSignIn"
+            app:destination="@id/fragmentSignIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDashboard"
+        android:name="com.example.geolab.FragmentDashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_fragmentDashboard_to_mainActivityFragment"
+            app:destination="@id/mainActivityFragment" />
+        <action
+            android:id="@+id/action_fragmentDashboard_to_fragmentSignIn"
+            app:destination="@id/fragmentSignIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainActivityFragment"
+        android:name="com.example.geolab.MainActivityFragment"
+        android:label="fragment_main_activity"
+        tools:layout="@layout/fragment_main_activity" >
+        <action
+            android:id="@+id/action_mainActivityFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.geolab.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+        <argument
+            android:name="map_name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.geolab.GameFragment"
+        android:label="GameFragment" >
+        <action
+            android:id="@+id/action_gameFragment_to_mainActivityFragment"
+            app:destination="@id/mainActivityFragment"
+            app:popUpTo="@id/mainActivityFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="map_name2"
+            app:argType="string" />
+    </fragment>
+</navigation>

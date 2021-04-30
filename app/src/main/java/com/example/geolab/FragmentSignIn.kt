@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentSignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -42,7 +43,8 @@ class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
         }
 
         registerBtn.setOnClickListener {
-            (activity as TestFragmentActivity).showRegisterFragment()
+            val action  = FragmentSignInDirections.actionFragmentSignInToFragmentRegister()
+            view.findNavController().navigate(action)
         }
 
         //google signin
@@ -142,7 +144,8 @@ class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
 
     private fun updateUI(currentUser: FirebaseUser?){
         if (currentUser != null){
-            (activity as TestFragmentActivity).showDashboardFragment()
+            val action  = FragmentSignInDirections.actionFragmentSignInToFragmentDashboard()
+            view?.findNavController()?.navigate(action)
         } else {
             Toast.makeText(
                 requireContext(), "Not Signed In.",
