@@ -31,6 +31,12 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
                 view.findNavController().navigate(action)
             }
         }
+        val ad : CardView = binding.adventure
+        ad.setOnClickListener {
+            val action = FragmentDashboardDirections.actionFragmentDashboardToMainActivityFragment()
+            view.findNavController().navigate(action)
+        }
+
     }
 
 }
