@@ -21,18 +21,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/map_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/lato_bold"
                 android:textAppearance="?attr/textAppearanceHeadline3" />
+
             <TextView
                 android:id="@+id/map_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textAppearance="?attr/textAppearanceHeadline6"/>
+                android:layout_marginStart="2dp"
+                android:justificationMode="inter_word"
+                android:paddingTop="12dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/open_sans"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <Button
                 android:id="@+id/start"
@@ -40,6 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Start"
+                android:padding="12dp"
+                app:backgroundTint="@color/orange_red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/map_description" />
 
