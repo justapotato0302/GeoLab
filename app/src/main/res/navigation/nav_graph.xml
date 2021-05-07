@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_fragmentDashboard_to_fragmentSignIn"
             app:destination="@id/fragmentSignIn" />
+        <action
+            android:id="@+id/action_fragmentDashboard_to_mainActivity2Fragment"
+            app:destination="@id/mainActivity2Fragment" />
     </fragment>
     <fragment
         android:id="@+id/mainActivityFragment"
@@ -82,6 +85,24 @@
             app:popUpToInclusive="true" />
         <argument
             android:name="map_name2"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainActivity2Fragment"
+        android:name="com.example.geolab.MainActivity2Fragment"
+        android:label="fragment_main_activity2"
+        tools:layout="@layout/fragment_main_activity2" >
+        <action
+            android:id="@+id/action_mainActivity2Fragment_to_sectionFragment"
+            app:destination="@id/sectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sectionFragment"
+        android:name="com.example.geolab.SectionFragment"
+        android:label="fragment_section"
+        tools:layout="@layout/fragment_section" >
+        <argument
+            android:name="chapterName"
             app:argType="string" />
     </fragment>
 </navigation>
