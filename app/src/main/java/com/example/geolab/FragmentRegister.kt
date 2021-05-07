@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class FragmentRegister: Fragment(R.layout.fragment_register) {
 
@@ -16,11 +18,14 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
 
     private lateinit var auth: FirebaseAuth
 
+    private lateinit var mDatabase : DatabaseReference
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentRegisterBinding.bind(view)
 
         auth = FirebaseAuth.getInstance()
+        mDatabase = FirebaseDatabase.getInstance().reference.child("users")
 
         val registerBtn: View = binding.registerSubmitBtn
         val emailInput = binding.usernameInput
@@ -69,6 +74,8 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
         auth.createUserWithEmailAndPassword(email.text.toString(), email.text.toString())
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+                    val userID : String = auth.currentUser.uid
+                    writeNewUser(userID,"CHAPTER1_sec1","0")
                     val action = FragmentRegisterDirections.actionFragmentRegisterToFragmentSignIn()
                     view?.findNavController()?.navigate(action)
                 } else {
@@ -76,6 +83,11 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
                         Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun writeNewUser(userID: String, currentStage: String, highScore: String){
+        val user = User(currentStage, highScore)
+        mDatabase.child(userID).setValue(user)
     }
 
 }

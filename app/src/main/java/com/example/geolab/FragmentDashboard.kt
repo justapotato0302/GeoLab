@@ -2,6 +2,7 @@ package com.example.geolab
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -20,6 +21,8 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
         binding = FragmentDashboardBinding.bind(view)
 
         auth = FirebaseAuth.getInstance()
+
+        val userID : String = auth.currentUser.uid
 
         val logout_btn : CardView? = binding.logoutBtn
 
