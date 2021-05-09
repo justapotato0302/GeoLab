@@ -24,14 +24,6 @@
             android:layout_marginBottom="5dip"
             android:layout_marginTop="5dip" />
 
-        <ImageView
-            android:id="@+id/outside_imageview1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_lock_24"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitXY" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -56,7 +48,8 @@
             android:src="@drawable/ic_baseline_lock_24"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:clickable="true"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -81,7 +74,8 @@
             android:src="@drawable/ic_baseline_lock_24"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:clickable="true"/>
     </RelativeLayout>
 
 
@@ -108,7 +102,8 @@
             android:src="@drawable/ic_baseline_lock_24"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:clickable="true"/>
     </RelativeLayout>
 
 
