@@ -63,21 +63,43 @@ class SectionFragment : Fragment() {
             Picasso.get().load(it.child("sec1").child("CoverPicture").getValue<String>()).resize(1300,450).into(img)
             val sec1Name : TextView = binding.text1
             sec1Name.text = it.child("sec1").child("Name").getValue<String>().toString()
+            img.setOnClickListener { showSectionInformationDialog("sec1") }
 
             val img2 : ImageView = binding.insideImageview2
             Picasso.get().load(it.child("sec2").child("CoverPicture").getValue<String>()).resize(1300,450).into(img2)
             val sec2Name : TextView = binding.text2
             sec2Name.text = it.child("sec2").child("Name").getValue<String>().toString()
+            img2.setOnClickListener {
+                if (lock2.visibility == View.VISIBLE) {
+                    showAlertDialog()
+                } else {
+                    showSectionInformationDialog("sec2")
+                }
+            }
 
             val img3 : ImageView = binding.insideImageview3
             Picasso.get().load(it.child("sec3").child("CoverPicture").getValue<String>()).resize(1300,450).into(img3)
             val sec3Name : TextView = binding.text3
             sec3Name.text = it.child("sec3").child("Name").getValue<String>().toString()
+            img3.setOnClickListener {
+                if (lock3.visibility == View.VISIBLE) {
+                    showAlertDialog()
+                } else {
+                    showSectionInformationDialog("sec3")
+                }
+            }
 
             val img4 : ImageView = binding.insideImageview4
             Picasso.get().load(it.child("sec4").child("CoverPicture").getValue<String>()).resize(1300,450).into(img4)
             val sec4Name : TextView = binding.text4
             sec4Name.text = it.child("sec4").child("Name").getValue<String>().toString()
+            img4.setOnClickListener {
+                if (lock4.visibility == View.VISIBLE) {
+                    showAlertDialog()
+                } else {
+                    showSectionInformationDialog("sec4")
+                }
+            }
         }
         mDatabase2 = FirebaseDatabase.getInstance().reference.child("users").child(userId)
         mDatabase2.child("currentStage").get().addOnSuccessListener {
@@ -142,7 +164,7 @@ class SectionFragment : Fragment() {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(title)
                 .setMessage(sectionInfo)
-                .setNegativeButton(getString(R.string.exit)) { dialog, _ ->
+                .setNegativeButton("Countinue") { dialog, _ ->
                     dialog.cancel()
                     dialog.dismiss()
                 }
