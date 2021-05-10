@@ -24,6 +24,17 @@
             android:layout_marginBottom="5dip"
             android:layout_marginTop="5dip" />
 
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@id/inside_imageview1"
+            android:layout_alignTop="@id/inside_imageview1"
+            android:scaleType="fitXY" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -50,6 +61,18 @@
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignRight="@id/inside_imageview2"
+            android:layout_alignTop="@id/inside_imageview2"
+            android:scaleType="fitXY" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,6 +99,18 @@
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@id/inside_imageview3"
+            android:layout_alignTop="@id/inside_imageview3"
+            android:scaleType="fitXY" />
     </RelativeLayout>
 
 
@@ -104,6 +139,18 @@
             android:layout_centerHorizontal="true"
             android:scaleType="fitXY"
             android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_alignRight="@id/inside_imageview4"
+            android:layout_alignTop="@id/inside_imageview4"
+            android:scaleType="fitXY" />
     </RelativeLayout>
 
 

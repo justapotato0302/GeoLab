@@ -1,11 +1,16 @@
 package com.example.geolab
 
 import android.os.Bundle
+import android.text.Layout
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.AlignmentSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isGone
 import com.example.geolab.databinding.FragmentSectionBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -56,12 +61,23 @@ class SectionFragment : Fragment() {
         mDatbase.get().addOnSuccessListener {
             val img : ImageView = binding.insideImageview1
             Picasso.get().load(it.child("sec1").child("CoverPicture").getValue<String>()).resize(1300,450).into(img)
+            val sec1Name : TextView = binding.text1
+            sec1Name.text = it.child("sec1").child("Name").getValue<String>().toString()
+
             val img2 : ImageView = binding.insideImageview2
             Picasso.get().load(it.child("sec2").child("CoverPicture").getValue<String>()).resize(1300,450).into(img2)
+            val sec2Name : TextView = binding.text2
+            sec2Name.text = it.child("sec2").child("Name").getValue<String>().toString()
+
             val img3 : ImageView = binding.insideImageview3
             Picasso.get().load(it.child("sec3").child("CoverPicture").getValue<String>()).resize(1300,450).into(img3)
+            val sec3Name : TextView = binding.text3
+            sec3Name.text = it.child("sec3").child("Name").getValue<String>().toString()
+
             val img4 : ImageView = binding.insideImageview4
             Picasso.get().load(it.child("sec4").child("CoverPicture").getValue<String>()).resize(1300,450).into(img4)
+            val sec4Name : TextView = binding.text4
+            sec4Name.text = it.child("sec4").child("Name").getValue<String>().toString()
         }
         mDatabase2 = FirebaseDatabase.getInstance().reference.child("users").child(userId)
         mDatabase2.child("currentStage").get().addOnSuccessListener {
@@ -110,6 +126,28 @@ class SectionFragment : Fragment() {
                 dialog.dismiss()
             }
             .show()
+    }
+
+    private fun showSectionInformationDialog(section : String) {
+        mDatbase.child(section).get().addOnSuccessListener {
+            val sectionName : String = it.child("Name").getValue<String>().toString()
+            val sectionInfo : String = it.child("Description").getValue<String>().toString()
+            val title = SpannableString(sectionName)
+            title.setSpan(
+                AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+                0,
+                title.length,
+                0
+            )
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(title)
+                .setMessage(sectionInfo)
+                .setNegativeButton(getString(R.string.exit)) { dialog, _ ->
+                    dialog.cancel()
+                    dialog.dismiss()
+                }
+                .show()
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
