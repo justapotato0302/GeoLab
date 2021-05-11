@@ -104,5 +104,16 @@
         <argument
             android:name="chapterName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_sectionFragment_to_gameFragment2"
+            app:destination="@id/gameFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment2"
+        android:name="com.example.geolab.GameFragment2"
+        android:label="GameFragment2" >
+        <argument
+            android:name="section"
+            app:argType="string" />
     </fragment>
 </navigation>

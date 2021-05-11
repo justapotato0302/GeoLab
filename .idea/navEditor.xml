@@ -45,6 +45,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_fragmentDashboard_to_mainActivity2Fragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_fragmentDashboard_to_mainActivityFragment">
                               <value>
                                 <LayoutPositions />
@@ -149,6 +154,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="gameFragment2">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1306" />
+                            <option name="y" value="58" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="mainActivity2Fragment">
                     <value>
                       <LayoutPositions>
@@ -157,6 +174,15 @@
                             <option name="x" value="652" />
                             <option name="y" value="61" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_mainActivity2Fragment_to_sectionFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

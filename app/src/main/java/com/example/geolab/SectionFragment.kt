@@ -63,7 +63,7 @@ class SectionFragment : Fragment() {
             Picasso.get().load(it.child("sec1").child("CoverPicture").getValue<String>()).resize(1300,450).into(img)
             val sec1Name : TextView = binding.text1
             sec1Name.text = it.child("sec1").child("Name").getValue<String>().toString()
-            img.setOnClickListener { showSectionInformationDialog("sec1") }
+            img.setOnClickListener { showSectionInformationDialog("sec1", chapterName) }
 
             val img2 : ImageView = binding.insideImageview2
             Picasso.get().load(it.child("sec2").child("CoverPicture").getValue<String>()).resize(1300,450).into(img2)
@@ -73,7 +73,7 @@ class SectionFragment : Fragment() {
                 if (lock2.visibility == View.VISIBLE) {
                     showAlertDialog()
                 } else {
-                    showSectionInformationDialog("sec2")
+                    showSectionInformationDialog("sec2", chapterName)
                 }
             }
 
@@ -85,7 +85,7 @@ class SectionFragment : Fragment() {
                 if (lock3.visibility == View.VISIBLE) {
                     showAlertDialog()
                 } else {
-                    showSectionInformationDialog("sec3")
+                    showSectionInformationDialog("sec3", chapterName)
                 }
             }
 
@@ -97,7 +97,7 @@ class SectionFragment : Fragment() {
                 if (lock4.visibility == View.VISIBLE) {
                     showAlertDialog()
                 } else {
-                    showSectionInformationDialog("sec4")
+                    showSectionInformationDialog("sec4", chapterName)
                 }
             }
         }
@@ -150,10 +150,13 @@ class SectionFragment : Fragment() {
             .show()
     }
 
-    private fun showSectionInformationDialog(section : String) {
-        mDatbase.child(section).get().addOnSuccessListener {
-            val sectionName : String = it.child("Name").getValue<String>().toString()
-            val sectionInfo : String = it.child("Description").getValue<String>().toString()
+    private fun showSectionInformationDialog(section : String, chaptername : String) {
+        mDatbase = FirebaseDatabase.getInstance().reference
+        mDatbase.get().addOnSuccessListener {
+            val sectionName : String = it.child("Map2").child(chapterName).child("Section").child(section).child("Name").getValue<String>().toString()
+            val sectionInfo : String = it.child("Map2").child(chapterName).child("Section").child(section).child("Description").getValue<String>().toString()
+            val highScore : String = it.child("users").child(auth.currentUser.uid).child("highScore").getValue<String>().toString()
+            val progression : String = it.child("users").child(auth.currentUser.uid).child("currentStage").getValue<String>().toString()
             val title = SpannableString(sectionName)
             title.setSpan(
                 AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
@@ -163,10 +166,9 @@ class SectionFragment : Fragment() {
             )
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(title)
-                .setMessage(sectionInfo)
-                .setNegativeButton("Countinue") { dialog, _ ->
-                    dialog.cancel()
-                    dialog.dismiss()
+                .setMessage(sectionInfo + "\n" + highScore)
+                .setNegativeButton("Countinue") { _, _ ->
+                    val action = SectionFragmentDirections.actionSectionFragmentToGameFragment2(section = progression)
                 }
                 .show()
         }
