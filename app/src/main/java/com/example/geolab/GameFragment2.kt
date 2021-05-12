@@ -83,9 +83,14 @@ class GameFragment2 : Fragment() {
                 userDatabase.get().addOnSuccessListener {
                     if (section_name.equals(it.child("currentStage").getValue<String>())) {
                         val highscore: Int = it.child("highScore").getValue<String>()!!.toInt()
-                        if (viewModel.score.value!! > highscore) {
+                        if (viewModel.score.value!! >= highscore) {
                             userDatabase.child("highScore")
                                 .setValue(viewModel.score.value!!.toString())
+                            if (viewModel.score.value!! == MAX_SCORE) {
+                                userDatabase.child("highScore")
+                                    .setValue("0")
+                                userDatabase.child("currentStage").setValue(nextChapter(section_name))
+                            }
                         }
                     }
                 }
@@ -151,8 +156,19 @@ class GameFragment2 : Fragment() {
         return randomInt
     }
 
-    private fun exitGame() {
-        activity?.finish()
+    private fun nextChapter(currentStage : String) : String {
+        val list : CharArray = currentStage.toCharArray()
+        val stageInNumber : String = list[7].toString() + list[12].toString()
+        var nextChapter = stageInNumber.toInt() / 10
+        var nextSection = stageInNumber.toInt() % 10
+        if (nextSection < 4) {
+            nextSection += 1
+            return "CHAPTER" + nextChapter + "_sec" + nextSection
+        } else {
+            nextChapter += 1
+            nextSection = 1
+            return "CHAPTER" + nextChapter + "_sec" + nextSection
+        }
     }
     private fun showFinalScoreDialog() {
         MaterialAlertDialogBuilder(requireContext())
