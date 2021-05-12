@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
+import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentSectionBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
@@ -166,9 +167,10 @@ class SectionFragment : Fragment() {
             )
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(title)
-                .setMessage(sectionInfo + "\n" + highScore)
+                .setMessage(sectionInfo + "\n" + getString(R.string.highscore, highScore.toInt()))
                 .setNegativeButton("Countinue") { _, _ ->
                     val action = SectionFragmentDirections.actionSectionFragmentToGameFragment2(section = progression)
+                    view?.findNavController()?.navigate(action)
                 }
                 .show()
         }

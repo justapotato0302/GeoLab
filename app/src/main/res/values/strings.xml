@@ -12,6 +12,7 @@
     <string name="word_count">%d of %d words</string>
     <string name="congratulations">Congratulations!</string>
     <string name="you_scored">"You scored: %d"</string>
+    <string name="highscore">"High score: %d"</string>
     <string name="exit">Exit</string>
     <string name="play_again">Play Again</string>
     <string name="score">Score: %d</string>
