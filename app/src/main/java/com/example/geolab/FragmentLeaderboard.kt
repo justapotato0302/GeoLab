@@ -52,7 +52,9 @@ class FragmentLeaderboard: Fragment(R.layout.fragment_leaderboard) {
                         userArrayList.add(user!!)
 
                     }
+                    userArrayList.sortedBy { it.highScore?.toInt()}
                     userRecyclerView.adapter = LeaderboardAdapter(userArrayList)
+                    binding.title.setText("Leaderboard")
                 }
             }
 

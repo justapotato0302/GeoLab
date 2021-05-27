@@ -1,7 +1,10 @@
 package com.example.geolab
 
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -51,11 +54,13 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
             val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentUserProfile()
             view.findNavController().navigate(action)
         }
-        val leadboardNavigation : CardView = binding.leaderboardBtn
-        leaderboardBtn.setOnClickListener {
+        val leaderboardNavigation : CardView = binding.leaderboardBtn
+        leaderboardNavigation.setOnClickListener {
             val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentLeaderboard()
             view.findNavController().navigate(action)
         }
+
+//        binding.ivSetting.colorFilter = ColorMatrixColorFilter(ColorMatrix().apply { setSaturation(0f)})
 
     }
 

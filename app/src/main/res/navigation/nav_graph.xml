@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/fragmentFront"
         android:name="com.example.geolab.FragmentFront"
-        android:label="fragment_front"
+        android:label=""
         tools:layout="@layout/fragment_front" >
         <action
             android:id="@+id/action_fragmentFront_to_fragmentSignIn"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/fragmentSignIn"
         android:name="com.example.geolab.FragmentSignIn"
-        android:label="fragment_sign_in"
+        android:label=""
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_fragmentSignIn_to_fragmentDashboard"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/fragmentRegister"
         android:name="com.example.geolab.FragmentRegister"
-        android:label="fragment_register"
+        android:label=""
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_fragmentRegister_to_fragmentSignIn"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/fragmentResetPassword"
         android:name="com.example.geolab.FragmentResetPassword"
-        android:label="fragment_reset_password"
+        android:label=""
         tools:layout="@layout/fragment_reset_password">
         <action
             android:id="@+id/action_fragmentResetPassword_to_fragmentSignIn"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/fragmentDashboard"
         android:name="com.example.geolab.FragmentDashboard"
-        android:label="fragment_dashboard"
+        android:label=""
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_fragmentDashboard_to_mainActivityFragment"
@@ -75,7 +75,7 @@
     <fragment
         android:id="@+id/mainActivityFragment"
         android:name="com.example.geolab.MainActivityFragment"
-        android:label="fragment_main_activity"
+        android:label=""
         tools:layout="@layout/fragment_main_activity" >
         <action
             android:id="@+id/action_mainActivityFragment_to_detailFragment"
@@ -84,7 +84,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.geolab.DetailFragment"
-        android:label="fragment_detail"
+        android:label=""
         tools:layout="@layout/fragment_detail" >
         <action
             android:id="@+id/action_detailFragment_to_gameFragment"
@@ -98,7 +98,7 @@
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.geolab.GameFragment"
-        android:label="GameFragment" >
+        android:label="" >
         <action
             android:id="@+id/action_gameFragment_to_mainActivityFragment"
             app:destination="@id/mainActivityFragment"
@@ -111,7 +111,7 @@
     <fragment
         android:id="@+id/mainActivity2Fragment"
         android:name="com.example.geolab.MainActivity2Fragment"
-        android:label="fragment_main_activity2"
+        android:label=""
         tools:layout="@layout/fragment_main_activity2" >
         <action
             android:id="@+id/action_mainActivity2Fragment_to_sectionFragment"
@@ -120,7 +120,7 @@
     <fragment
         android:id="@+id/sectionFragment"
         android:name="com.example.geolab.SectionFragment"
-        android:label="fragment_section"
+        android:label=""
         tools:layout="@layout/fragment_section" >
         <argument
             android:name="chapterName"
@@ -132,7 +132,7 @@
     <fragment
         android:id="@+id/gameFragment2"
         android:name="com.example.geolab.GameFragment2"
-        android:label="GameFragment2" >
+        android:label="" >
         <argument
             android:name="section"
             app:argType="string" />
@@ -145,12 +145,12 @@
     <fragment
         android:id="@+id/fragmentUserProfile"
         android:name="com.example.geolab.FragmentUserProfile"
-        android:label="fragment_user_profile" >
+        android:label="" >
     </fragment>
     <fragment
         android:id="@+id/fragmentLeaderboard"
         android:name="com.example.geolab.FragmentLeaderboard"
-        android:label="fragment_leaderboard" >
+        android:label="" >
     </fragment>
 
 </navigation>
