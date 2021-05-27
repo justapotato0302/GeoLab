@@ -25,7 +25,10 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
 
         auth = FirebaseAuth.getInstance()
 
-        val userID : String = auth.currentUser.uid
+        if (auth.currentUser == null) {
+            val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentSignIn()
+            view.findNavController().navigate(action)
+        }
 
         val logout_btn : CardView? = binding.logoutBtn
 

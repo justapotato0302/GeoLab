@@ -28,7 +28,7 @@
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_bg"
+            android:background="@drawable/round_bg_white_border"
             android:fontFamily="@font/poppins_medium"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"

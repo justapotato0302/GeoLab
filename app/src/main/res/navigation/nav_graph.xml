@@ -146,6 +146,7 @@
         android:id="@+id/fragmentUserProfile"
         android:name="com.example.geolab.FragmentUserProfile"
         android:label="" >
+
     </fragment>
     <fragment
         android:id="@+id/fragmentLeaderboard"

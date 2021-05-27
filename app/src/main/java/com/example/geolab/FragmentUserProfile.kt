@@ -29,6 +29,7 @@ class FragmentUserProfile: Fragment(R.layout.fragment_user_profile) {
         binding = FragmentUserProfileBinding.bind(view)
 
         auth = FirebaseAuth.getInstance()
+
         var user = auth.currentUser
         var userId = user.uid
         var name = binding.fullname

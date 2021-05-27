@@ -74,8 +74,8 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
         auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
-                    val userID : String = auth.currentUser.uid
-                    writeNewUser(userID,"CHAPTER1_sec1","0")
+                    val currentUser = auth.currentUser
+                    writeNewUser(currentUser.uid,"CHAPTER1_sec1","0")
                     verifyEmail()
                     Toast.makeText(requireContext(), "Registered Successfully.",
                         Toast.LENGTH_SHORT).show()

@@ -28,8 +28,6 @@ class FragmentLeaderboard: Fragment(R.layout.fragment_leaderboard) {
 
         auth = FirebaseAuth.getInstance()
 
-        val userID: String = auth.currentUser.uid
-
         userRecyclerView = binding.rvLeaderboard
         userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         userRecyclerView.setHasFixedSize(true)
