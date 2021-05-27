@@ -4,4 +4,17 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 
 @IgnoreExtraProperties
-data class User(val currentStage: String? = null, val highScore: String? = null ){}
+class User{
+
+    var currentStage : String? = null
+    var highScore : String? = null
+    var displayName : String? = null
+
+    constructor(){}
+
+    constructor(currentStage : String?, highScore: String?, displayName: String?) {
+        this.currentStage = currentStage
+        this.highScore = highScore
+        this.displayName = displayName
+    }
+}

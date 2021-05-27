@@ -143,7 +143,7 @@ class SectionFragment : Fragment() {
 
     private fun showAlertDialog() {
         MaterialAlertDialogBuilder(requireContext())
-            .setMessage(getString(R.string.unclock))
+            .setMessage(getString(R.string.unlock))
             .setNegativeButton(getString(R.string.exit)) { dialog, _ ->
                 dialog.cancel()
                 dialog.dismiss()

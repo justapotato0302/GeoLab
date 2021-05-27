@@ -18,6 +18,8 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
 
@@ -27,24 +29,33 @@ class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    private lateinit var mDatabase : DatabaseReference
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignInBinding.bind(view)
 
         auth = FirebaseAuth.getInstance()
 
+        mDatabase = FirebaseDatabase.getInstance().reference.child("users")
+
         val loginBtn: View = binding.loginBtn
         val registerBtn: View = binding.registerFromLogin
         val emailInput = binding.usernameInput
         val passwordInput = binding.password
+
+        val forgotBtn: View = binding.forgotPassword
 
         loginBtn.setOnClickListener {
             signIn(emailInput, passwordInput)
         }
 
         registerBtn.setOnClickListener {
-            val action  = FragmentSignInDirections.actionFragmentSignInToFragmentRegister()
-            view.findNavController().navigate(action)
+            view.findNavController().navigate(FragmentSignInDirections.actionFragmentSignInToFragmentRegister())
+        }
+
+        forgotBtn.setOnClickListener {
+            view.findNavController().navigate(FragmentSignInDirections.actionFragmentSignInToFragmentResetPassword())
         }
 
         //google signin
@@ -130,9 +141,10 @@ class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+                    val currentUser = auth.currentUser
+                    writeNewUser(currentUser.uid,"CHAPTER1_sec1","0")
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val currentUser = auth.currentUser
                     updateUI(currentUser)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -140,6 +152,11 @@ class FragmentSignIn: Fragment(R.layout.fragment_sign_in) {
                     updateUI(null)
                 }
             }
+    }
+
+    private fun writeNewUser(userID: String, currentStage: String, highScore: String){
+        val user = User(currentStage, highScore, userID)
+        mDatabase.child(userID).setValue(user)
     }
 
     private fun updateUI(currentUser: FirebaseUser?){

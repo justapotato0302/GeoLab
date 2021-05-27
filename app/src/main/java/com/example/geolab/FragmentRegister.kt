@@ -71,11 +71,15 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
             return
         }
 
-        auth.createUserWithEmailAndPassword(email.text.toString(), email.text.toString())
+        auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     val userID : String = auth.currentUser.uid
                     writeNewUser(userID,"CHAPTER1_sec1","0")
+                    verifyEmail()
+                    Toast.makeText(requireContext(), "Registered Successfully.",
+                        Toast.LENGTH_SHORT).show()
+                    auth.signOut()
                     val action = FragmentRegisterDirections.actionFragmentRegisterToFragmentSignIn()
                     view?.findNavController()?.navigate(action)
                 } else {
@@ -86,8 +90,24 @@ class FragmentRegister: Fragment(R.layout.fragment_register) {
     }
 
     private fun writeNewUser(userID: String, currentStage: String, highScore: String){
-        val user = User(currentStage, highScore)
+        val user = User(currentStage, highScore, userID)
         mDatabase.child(userID).setValue(user)
+    }
+
+    private fun verifyEmail() {
+        val currentUser = auth.currentUser;
+        currentUser.sendEmailVerification()
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(requireContext(),
+                        "Verification email sent to " + currentUser.getEmail(),
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(),
+                        "Failed to send verification email.",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
 }

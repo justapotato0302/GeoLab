@@ -16,7 +16,10 @@
     <string name="exit">Exit</string>
     <string name="play_again">Play Again</string>
     <string name="score">Score: %d</string>
-    <string name="unclock">You need to complete the previous stage inorder to unlock this stage</string>
+    <string name="unlock">You need to complete the previous stage inorder to unlock this stage</string>
+    <string name="display_name">%s</string>
+    <string name="email_address">%s</string>
+    <string name="password_hidden">*********</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

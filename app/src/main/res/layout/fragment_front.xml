@@ -19,7 +19,7 @@
         android:paddingRight="50dp"
         android:paddingBottom="14dp"
         android:text="Play As Guest"
-        android:textColor="@color/orange_red"
+        android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

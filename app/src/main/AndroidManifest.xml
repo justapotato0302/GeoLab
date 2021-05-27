@@ -9,10 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeoLab">
-        <activity android:name=".DashboardActivity"></activity>
-        <activity android:name=".TestFragmentActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

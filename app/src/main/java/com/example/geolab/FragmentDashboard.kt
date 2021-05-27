@@ -1,14 +1,14 @@
 package com.example.geolab
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.geolab.databinding.FragmentDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+
 
 class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
 
@@ -43,6 +43,17 @@ class FragmentDashboard: Fragment(R.layout.fragment_dashboard) {
         val discoveryModeNavigation : CardView = binding.discovery
         discoveryModeNavigation.setOnClickListener {
             val action = FragmentDashboardDirections.actionFragmentDashboardToMainActivity2Fragment()
+            view.findNavController().navigate(action)
+        }
+
+        val userProfileNavigation : CardView = binding.profile
+        userProfileNavigation.setOnClickListener {
+            val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentUserProfile()
+            view.findNavController().navigate(action)
+        }
+        val leadboardNavigation : CardView = binding.leaderboardBtn
+        leaderboardBtn.setOnClickListener {
+            val action = FragmentDashboardDirections.actionFragmentDashboardToFragmentLeaderboard()
             view.findNavController().navigate(action)
         }
 
