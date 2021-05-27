@@ -31,8 +31,13 @@
 
         <TextView
             android:id="@+id/tvScore"
-            android:layout_width="356dp"
-            android:layout_height="47dp">
+            android:gravity="center_vertical|right"
+            android:paddingRight="20dp"
+            android:textColor="@color/orange_red"
+            android:textSize="25dp"
+            android:background="@drawable/round_bg_white"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
         </TextView>
 
     </LinearLayout>
