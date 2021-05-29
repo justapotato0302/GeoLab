@@ -79,6 +79,17 @@ class GameFragment2 : Fragment() {
         mDatabase.addValueEventListener(mapListener)
         myRadioGroup = binding.radioGroup
         binding.submit.setOnClickListener{
+            pickedInt.clear()
+            val question = "Q".plus(currentQuestion)
+            val radioBtn: RadioButton =
+                myRadioGroup.findViewById(myRadioGroup.checkedRadioButtonId)
+
+            mDatabase.child("Q".plus(currentQuestion - 1)).child("Answer1").get()
+                .addOnSuccessListener {
+                    if (radioBtn.text == it.value) {
+                        viewModel.increaseScore()
+                    }
+                }
             if (viewModel.currentQuestionCount.value!! == 5){
                 userDatabase.get().addOnSuccessListener {
                     if (section_name.equals(it.child("currentStage").getValue<String>())) {
@@ -98,17 +109,6 @@ class GameFragment2 : Fragment() {
             } else if (myRadioGroup.checkedRadioButtonId == -1) {
                 Toast.makeText(requireContext(), "Please select an answer" , Toast.LENGTH_SHORT).show()
             } else {
-                pickedInt.clear()
-                val question = "Q".plus(currentQuestion)
-                val radioBtn: RadioButton =
-                    myRadioGroup.findViewById(myRadioGroup.checkedRadioButtonId)
-
-                mDatabase.child("Q".plus(currentQuestion - 1)).child("Answer1").get()
-                    .addOnSuccessListener {
-                        if (radioBtn.text == it.value) {
-                            viewModel.increaseScore()
-                        }
-                    }
                 mDatabase.child(question).addValueEventListener(object : ValueEventListener {
                     override fun onCancelled(error: DatabaseError) {
                         TODO("Not yet implemented")

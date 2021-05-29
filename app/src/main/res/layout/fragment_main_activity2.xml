@@ -18,44 +18,52 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="10dp">
 
+
         <RadioButton
             android:id="@+id/radioButton7"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton6"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton5"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton4"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton3"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton2"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"/>
 
         <RadioButton
             android:id="@+id/radioButton1"
+            android:buttonTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
